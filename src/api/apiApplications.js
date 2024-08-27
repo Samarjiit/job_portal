@@ -10,7 +10,7 @@ export async function applyToJob(token, _, jobData) {
     .upload(fileName, jobData.resume)
 
   if (storageError) {
-    console.error("error uploading resumes", error)
+    console.error("error uploading resumes", storageError)
     return null
   }
 
@@ -39,6 +39,20 @@ export async function updateApplicationStatus(token, { job_id }, status) {
 
   if (error || data.length === 0) {
     console.error("Error Updating Application Status:", error)
+    return null
+  }
+
+  return data
+}
+export async function getApplications(token, { user_id }) {
+  const supabase = await supabaseClient(token)
+  const { data, error } = await supabase
+    .from("applications")
+    .select("*,job:jobs(title,company:companies(name))")
+    .eq("candidate_id", user_id)
+
+  if (error) {
+    console.error("Error fetching applications:", error)
     return null
   }
 

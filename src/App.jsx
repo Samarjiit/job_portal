@@ -8,7 +8,7 @@ import OnBoarding from "./pages/onboarding"
 import JobListing from "./pages/job-listing"
 import PostJob from "./pages/post-job"
 import SavedJob from "./pages/saved-job"
-import MyJob from "./pages/my-job"
+import MyJobs from "./pages/my-job"
 import JobPage from "./pages/job"
 import ProtectedRoute from "./components/protected-route"
 
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         path: "/my-jobs",
         element: (
           <ProtectedRoute>
-            <MyJob />
+            <MyJobs />
           </ProtectedRoute>
         ),
       },
