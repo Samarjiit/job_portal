@@ -63,15 +63,18 @@ export async function saveJob(token, { alreadySaved }, saveData) {
 //fetching for single company
 export async function getSingleJob(token, { job_id }) {
   const supabase = await supabaseClient(token)
-
-  const { data, error } = await supabase
+  let query = supabase
     .from("jobs")
-    .select("*,company:companies(name,logo_url),applications:applications(*)") //spplication for recruiter
+    .select(
+      "*, company: companies(name,logo_url), applications: applications(*)"
+    )
     .eq("id", job_id)
     .single()
 
+  const { data, error } = await query
+
   if (error) {
-    console.error("error fetching company", error)
+    console.error("Error fetching Job:", error)
     return null
   }
 

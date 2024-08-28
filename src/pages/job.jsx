@@ -104,7 +104,7 @@ const JobPage = () => {
         className="bg-transparent sm:text-lg"
       />
       {/* render applications */}
-      {job?.recruiter_id === user?.id && (
+      {job?.recruiter_id !== user?.id && (
         <ApplyJobDrawer
           job={job}
           user={user}
@@ -112,7 +112,7 @@ const JobPage = () => {
           applied={job?.applications?.find((ap) => ap.candidate_id === user.id)}
         />
       )}
-      {job?.applications?.length > 0 && job?.recruiter_id !== user?.id && (
+      {job?.applications?.length > 0 && job?.recruiter_id === user?.id && (
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl sm:text-3xl font-bold">Applications</h2>
           {job?.applications.map((application) => {

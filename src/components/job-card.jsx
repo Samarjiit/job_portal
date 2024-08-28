@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+
 import { useUser } from "@clerk/clerk-react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { MapPinIcon, Trash2Icon, Heart } from "lucide-react"
