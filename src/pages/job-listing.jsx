@@ -15,6 +15,7 @@ import {
   SelectContent,
   SelectGroup,
 } from "@/components/ui/select"
+
 import { State } from "country-state-city"
 const JobListing = () => {
   const [searchQuery, setSearchQuery] = useState("")
@@ -35,6 +36,7 @@ const JobListing = () => {
   }, [isLoaded])
   useEffect(() => {
     if (isLoaded) fnJobs()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoaded, location, company_id, searchQuery])
 
   const handleSearch = (e) => {
