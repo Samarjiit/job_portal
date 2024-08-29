@@ -26,6 +26,14 @@ This is a Full Stack Job Portal built using React JS, Tailwind CSS, Supabase, Cl
 - **State Management**: React Hook Form, Zod
 - **Custom Hooks**: Created for data fetching and other reusable functionalities
 
+
+## Database Schema
+
+Below is the database schema used in the project:
+
+![Database Schema](https://github.com/Samarjiit/job_portal/blob/main/public/database.png)
+
+
 ## Setup and Installation
 
 To get the project running locally, follow these steps:
